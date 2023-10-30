@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const clarifaiSetUp = (imgUrl) => {
     const PAT = 'c168ca4bd8ac46b0a11775fa41cfbf94';
     const USER_ID = 'ofogel';       
