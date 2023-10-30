@@ -1,5 +1,11 @@
 const handleRegister = (db, bcrypt) => (req, res) => {
     const { email, name, password } = req.body;
+    if ( !email || !name || !password) { // if something's empty, it'll return true
+        return res.status(400).json('Data empty or invalid'); // to end execution inside a function, don't forget to return, otherwise it'll throw an error
+    }
+    if (!email.includes('@')) {
+        return res.status(400).json('Invalid email format');
+    }
     const hash = bcrypt.hashSync(password);
     return db.transaction(trx => {
         trx.insert({

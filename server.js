@@ -6,7 +6,7 @@ import knex from 'knex';
 import handleRegister from './controllers/register.js';
 import handleSignIn from './controllers/signin.js';
 import handleProfile from './controllers/profile.js';
-import handleImageSubmit from './controllers/image.js';
+import { handleImageSubmit, handleApiCall } from './controllers/image.js';
 
 const db = knex({
     client: 'pg',
@@ -31,6 +31,7 @@ app.post('/signin', handleSignIn(db, bcrypt));
 app.post('/register', handleRegister(db, bcrypt));
 app.get('/profile/:id', handleProfile(db));
 app.put('/image', handleImageSubmit(db));
+app.post('/imageurl', (req, res) => handleApiCall(req, res)); // because it's not a higher-order function, it wouldn't be designed to receive res and req with the similar syntaxis to the endpoints above
 
 app.listen(3000, () => {
     console.log('app is running on port 3000');
