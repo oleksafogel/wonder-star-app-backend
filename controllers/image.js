@@ -1,8 +1,8 @@
 import fetch from "node-fetch";
 
 const clarifaiSetUp = (imgUrl) => {
-    const PAT = 'c168ca4bd8ac46b0a11775fa41cfbf94';
-    const USER_ID = 'ofogel';       
+    const PAT = process.env.CLARIFAI_PAT;
+    const USER_ID = process.env.CLARIFAI_USER;       
     const APP_ID = 'wonder-star-app';
     const IMAGE_URL = imgUrl;
   

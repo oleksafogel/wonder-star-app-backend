@@ -11,12 +11,11 @@ import { handleImageSubmit, handleApiCall } from './controllers/image.js';
 const db = knex({
     client: 'pg',
     connection: {
-      connectionString: 'postgres://wonder_star_app_db_user:3TtW54hvTmvc1lxTtYG1FL3sD68lG7fe@dpg-cl0ebsa37rbc739m6b00-a/wonder_star_app_db',
-      // ssl: { rejectUnauthorized: false },
-      host: 'dpg-cl0ebsa37rbc739m6b00-a',
-      user : 'wonder_star_app_db_user',
-      password : '3TtW54hvTmvc1lxTtYG1FL3sD68lG7fe',
-      database : 'wonder_star_app_db',
+      connectionString: process.env.DB_URL,
+      database: process.env.DB_NAME,
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
       port: 5432,
     }
   });
