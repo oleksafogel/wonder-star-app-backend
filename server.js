@@ -34,7 +34,7 @@ app.post('/signin', handleSignIn(db, bcrypt));
 app.post('/register', handleRegister(db, bcrypt));
 app.get('/profile/:id', handleProfile(db));
 app.put('/image', handleImageSubmit(db));
-app.post('/imageurl', (req, res) => handleApiCall(req, res)); // because it's not a higher-order function, it wouldn't be designed to receive res and req with the similar syntaxis to the endpoints above
+app.post('/imageurl', (req, res) => handleApiCall(req, res));
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`app is running on port ${process.env.PORT}`);

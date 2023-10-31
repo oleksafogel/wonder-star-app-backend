@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const clarifaiSetUp = (imgUrl) => {
     const PAT = 'c168ca4bd8ac46b0a11775fa41cfbf94';
     const USER_ID = 'ofogel';       
@@ -33,7 +35,7 @@ const clarifaiSetUp = (imgUrl) => {
 
 const handleApiCall = (req, res) => {
     fetch("https://api.clarifai.com/v2/models/celebrity-face-detection/outputs", clarifaiSetUp(req.body.input))
-    .then(response => response.json())  // <-- Parse the response as JSON
+    .then(response => response.json())
     .then(data => {
         res.json(data);
     })
